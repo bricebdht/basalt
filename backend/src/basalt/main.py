@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from basalt.routers import terrain
+
 app = FastAPI(title="Basalt API", version="0.1.0")
 
 app.add_middleware(
@@ -9,6 +11,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+app.include_router(terrain.router)
 
 
 @app.get("/health")
