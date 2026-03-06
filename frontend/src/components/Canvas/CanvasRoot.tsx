@@ -2,6 +2,7 @@ import { useRef, useEffect, useState, useCallback } from 'react'
 import { Stage, Layer } from 'react-konva'
 import Konva from 'konva'
 import { GridLayer } from './GridLayer'
+import { TerrainLayer } from './TerrainLayer'
 import { useZoomPan } from '../../hooks/useZoomPan'
 
 export function CanvasRoot() {
@@ -67,8 +68,10 @@ export function CanvasRoot() {
           <GridLayer width={size.width} height={size.height} />
         </Layer>
 
-        {/* Terrain layer — will be added in issue #10 */}
-        <Layer />
+        {/* Terrain layer */}
+        <Layer>
+          <TerrainLayer />
+        </Layer>
 
         {/* Rooms layer — will be added in issue #11 */}
         <Layer />
